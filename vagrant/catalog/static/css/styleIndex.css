@@ -1,0 +1,44 @@
+.change-positionIndex {
+  position: relative;
+  top: 80px;
+}
+
+.header {
+  margin: 5px 40px;
+}
+
+.jumbotron {
+  padding: 2rem 2rem;
+}
+
+.fontSize {
+  font-size: 1.3rem;
+  line-height: 1.2;
+  color: #db4116;
+}
+
+.navbar-brand {
+  margin-left: 5rem;
+  font-size: 2rem;
+}
+
+.loganchor {
+  margin-right: 10rem;
+  padding: 0rem;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.loginput {
+  background-color: #db4116;
+  color: white;
+  height: 40px;
+  width: 75px;
+}
+
+.nav-link {
+  font-size: 2rem;
+  padding: 0rem 1rem;
+}
