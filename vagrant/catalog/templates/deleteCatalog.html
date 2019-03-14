@@ -1,0 +1,20 @@
+{% extends 'base.html'%} {%block content%}
+<div class="container change-positionIndex">
+  <div class="row">
+    <div class="col-8 col-sm-8">
+      <form method="POST" action="{{url_for('deleteCatalog', deletename=deleteItem.name)}}">
+      <h1>Delete Item {{ deleteItem.name }}</h1>
+      <p>
+        Are you sure you want to delete item?
+      </p>
+      <input type="submit" value="Delete {{ deleteItem.name }}" />
+    </div>
+    </form>
+    <div class="col-4 col-sm-4">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore a,
+      quisquam sint fugiat dignissimos repudiandae ex ab doloribus! Quod
+      delectus quibusdam nihil vero, debitis quia rerum dolores unde sint iure.
+    </div>
+  </div>
+  {%endblock%}
+</div>

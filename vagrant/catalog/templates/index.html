@@ -1,0 +1,27 @@
+{% extends "base.html"%} {% block content%}
+<div class="container change-positionIndex">
+  <div class="row">
+    <div class="col-4 col-sm-4">
+      <h1>Categories</h1>
+      <div class="fontSize">
+      {% for display in displayCatalog%}
+      <a href="{{url_for('getCatalogItems', name=display.cname)}} " class="fontSize">
+      {{ display.cname }}
+      </a>
+      <br />
+      {% endfor%}
+      </div>
+    </div>
+    <div class="col-8 col-sm-8">
+      <a href="{{url_for('newCatalogItem')}}" class="fontSize">Add Item</a>
+      <h1>Latest Items</h1>
+      <div class="fontSize">
+      {%for display in displayCatItems%}
+      {{ display.name }} <i style="color:gray">&#40{{ display.cname }}&#41</i
+      ><br />
+      {%endfor%}
+      </div>
+    </div>
+  </div>
+</div>
+{%endblock%}

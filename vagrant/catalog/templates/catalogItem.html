@@ -1,0 +1,28 @@
+{% extends 'base.html'%} {% block content%}
+<div class="container change-positionIndex">
+  <div class="row">
+    <div class="col-4 col-md-4">
+      <h1>Categories</h1>
+      <div class="fontSize">
+        {% for catalog in displayCatalogs%}
+        {{ catalog.cname }} <br />
+        {%endfor%}
+      </div>
+    </div>
+    <div class="col-8 col-md-8 ">
+      <h1>{{ displayCatalog.cname }} Items</h1>
+      <div>
+        {%for item in getItems %}
+        <a
+          class="fontSize"
+          href="{{url_for('getCatalogDescription', getname=item.Catalog.cname, getdescname=item.CatalogsItem.name )}}"
+        >
+          {{ item.CatalogsItem.name }} <br
+        /></a>
+
+        {%endfor%}
+      </div>
+    </div>
+  </div>
+</div>
+{%endblock%}

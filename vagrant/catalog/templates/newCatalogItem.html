@@ -1,0 +1,69 @@
+{%extends 'base.html'%} {% block content%}{% with messages =
+get_flashed_messages() %} {% if messages %}
+<ul class="flashes">
+  {% for message in messages %}
+  <div class="message_flash">{{ message }}</div>
+  {% endfor %}
+</ul>
+{% endif %} {% endwith %}
+<div class="container change-positionLogin">
+  <div class="row">
+    <div class="col-sm-8 changePosition">
+      <h3>You are about to Add item</h3>
+      <form method="POST" action="{{ url_for('newCatalogItem') }}">
+        <div class="form-group">
+          <label>Title</label><br />
+          <input
+            type="text"
+            name="name"
+            placeholder="Enter Category"
+            style="width:70%"
+          />
+        </div>
+        <div class="form-group">
+          <label>Description</label><br />
+          <textarea
+            type="text"
+            name="description"
+            placeholder="Enter description here, not more than 200 character"
+            rows="3"
+            cols="53"
+            wrap="soft"
+            maxlength="400"
+            style="resize:none"
+          ></textarea>
+        </div>
+        <div class="form-group">
+          <label>Price</label><br />
+          <input
+            type="text"
+            name="price"
+            placeholder="Enter price for the item"
+            style="width:70%"
+          />
+        </div>
+        <div class="form-group">
+          <label>Choose Category</label><br />
+          <select name="catLog">
+            <option value="Soccer">Soccer</option>
+            <option value="BaseBall">BaseBall</option>
+            <option value="Basketball">Basketball</option>
+            <option value="Frisbee">Frisbee</option>
+            <option value="Snowboarding">Snowboarding</option>
+            <option value="Rock Climbing">Rock Climbing</option>
+            <option value="Foosball">Foosball</option>
+            <option value="Skating">Skating</option>
+            <option value="Hockey">Hockey</option>
+          </select>
+        </div>
+        <input type="submit" value="Add Item" />
+      </form>
+    </div>
+    <div class="col-sm-4">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore a,
+      quisquam sint fugiat dignissimos repudiandae ex ab doloribus! Quod
+      delectus quibusdam nihil vero, debitis quia rerum dolores unde sint iure.
+    </div>
+  </div>
+</div>
+{%endblock%}
