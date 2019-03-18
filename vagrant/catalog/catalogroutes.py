@@ -417,7 +417,7 @@ def deleteCatalog(deletename):
         return redirect('/login')
     deleteItem = db.session.query(CatalogsItem).filter_by(name=deletename).one()
     catalog = db.session.query(CatalogsItem).filter_by(id=deleteItem.user_id).one()
-    if login_session['user_id'] != catalog.user_id:
+    if login_session['user_id'] != deleteItem.user_id:
         return(
             "<script>function myFunction() {alert('You are not authorized to delete this Catalog item. Please create your own Catalog item in order to delete.');}</script><body onload='myFunction()''>"
         )
