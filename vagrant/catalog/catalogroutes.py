@@ -393,9 +393,9 @@ def editCatalog(editname):
     if 'username' not in login_session:
         return redirect('/login')
     editItem = db.session.query(CatalogsItem).filter_by(name=editname).one()
-    #catalog = db.session.query(CatalogsItem).filter_by(id=editItem.user_id).one()
-    #if login_session['user_id'] != editItem.user_id:
-    #    return "<script>function myFunction() {alert('You are not authorized to edit this Catalo item. Please create your own Catalog item in order to edit.');}</script><body onload='myFunction()''>"
+    catalog = db.session.query(CatalogsItem).filter_by(id=editItem.user_id).one()
+    if login_session['user_id'] != editItem.user_id:
+        return "<script>function myFunction() {alert('You are not authorized to edit this Catalo item. Please create your own Catalog item in order to edit.');}</script><body onload='myFunction()''>"
     if request.method == "POST":
         if request.form["name"]:
             editItem.name = request.form["name"]
@@ -416,11 +416,11 @@ def deleteCatalog(deletename):
     if 'username' not in login_session:
         return redirect('/login')
     deleteItem = db.session.query(CatalogsItem).filter_by(name=deletename).one()
-    #catalog = db.session.query(CatalogsItem).filter_by(id=deleteItem.user_id).one()
-    #if login_session['user_id'] != catalog.user_id:
-    #    return(
-    #        "<script>function myFunction() {alert('You are not authorized to delete this Catalog item. Please create your own Catalog item in order to delete.');}</script><body onload='myFunction()''>"
-    #    )
+    catalog = db.session.query(CatalogsItem).filter_by(id=deleteItem.user_id).one()
+    if login_session['user_id'] != catalog.user_id:
+        return(
+            "<script>function myFunction() {alert('You are not authorized to delete this Catalog item. Please create your own Catalog item in order to delete.');}</script><body onload='myFunction()''>"
+        )
     if request.method == "POST":
         db.session.delete(deleteItem)
         flash("Catalog successfully deleted")
